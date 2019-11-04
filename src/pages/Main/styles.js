@@ -45,7 +45,7 @@ export const User = styled.View.attrs({})`
   border-radius: 5px;
   border: 1px solid #eee;
   padding: 20px;
-  margin: 0 20px 25px;
+  margin: 0 10px 25px;
 `;
 
 export const Avatar = styled.Image`
