@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import api from '../../services/api';
 
-import { 
-  Container, 
-  Header, 
-  Avatar, 
-  Name, 
+import {
+  Container,
+  Header,
+  Avatar,
+  Name,
   Bio,
   Stars,
   Starred,
   OwnerAvatar,
   Info,
   Title,
-  Author 
+  Author,
 } from './styles';
 
 export default class User extends Component {
@@ -24,7 +24,7 @@ export default class User extends Component {
   static PropTypes = {
     navigation: PropTypes.shape({
       getParam: PropTypes.func,
-    }).isRequired
+    }).isRequired,
   };
 
   state = {
@@ -41,13 +41,12 @@ export default class User extends Component {
   }
 
   render() {
-
     const { navigation } = this.props;
     const { stars } = this.state;
 
     const user = navigation.getParam('user');
 
-    return(
+    return (
       <Container>
         <Header>
           <Avatar source={{ uri: user.avatar }} />
@@ -60,7 +59,7 @@ export default class User extends Component {
           keyExtractor={star => String(star.id)}
           renderItem={({ item }) => (
             <Starred>
-              <OwnerAvatar source={{ uri: item.owner.avatar_url }}/>
+              <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
               <Info>
                 <Title>{item.name}</Title>
                 <Author>{item.owner.login}</Author>
@@ -68,7 +67,7 @@ export default class User extends Component {
             </Starred>
           )}
         />
-      </Container> 
+      </Container>
     );
   }
 }
